@@ -20,7 +20,7 @@ app.use(cors());
 // Routers
 app.use('/api/user', userRouter);
 app.use('/api/quotation', quotationRouter);
-app.use('/api/quotationDetails', quotationDetailsRouter);
+//app.use('/api/quotationDetails', quotationDetailsRouter);
 
 // Sync database and start the server
 sequelize

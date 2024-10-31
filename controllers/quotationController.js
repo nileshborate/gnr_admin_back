@@ -3,10 +3,10 @@ import Quotation from "../models/quotationModel.js";
 
 // insert quotation
 export const insertQuotation = async (req, res) => {
-    const { userId,name,address,mobile,total } = req.body;
+    const { userId,name,address,mobile,totalSheet,totalLaminate,details } = req.body;
   
     try {
-      const newQuotation = await Quotation.create({ userId,name,address,mobile,total });
+      const newQuotation = await Quotation.create({ userId,name,address,mobile,totalSheet,totalLaminate,details });
       res.status(201).json({ quotation: newQuotation });
     } catch (error) {
       res.status(500).json({ error: error });
@@ -15,7 +15,7 @@ export const insertQuotation = async (req, res) => {
 
 //update quotation
 export const updateQuotation = async (req, res) => {
-    const { userId,name,address,mobile,total,discount,extraWork,status } = req.body;
+    const { userId,name,address,mobile,totalSheet,totalLaminate,details,discount,extraWork,status } = req.body;
 
     try {
         const quot = await Quotation.findByPk(req.quotation.id); // Get logged-in user's ID from the JWT token
@@ -28,10 +28,12 @@ export const updateQuotation = async (req, res) => {
         quot.name = name || quot.name;
         quot.address = address || quot.address;
         quot.mobile = mobile || quot.mobile;
-        quot.total = total || quot.total;
+        quot.totalSheet = totalSheet || quot.totalSheet;
+        quot.totalLaminate = totalLaminate || quot.totalLaminate;
         quot.discount = discount || quot.discount;
         quot.extraWork = extraWork || quot.extraWork;
         quot.status = status || quot.status;
+        quot.details = details || quot.details;
 
         await quot.save();
 

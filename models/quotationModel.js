@@ -42,7 +42,10 @@ const Quotation = sequelize.define('quotation', {
     defaultValue: 0,
     allowNull: false,
   },
-
+  details:{
+    type: DataTypes.JSON,
+    defaultValue: {},
+  },
     status: {
     type: DataTypes.ENUM('pending','accept','reject','progress'),
     defaultValue: 'pending',

@@ -4,7 +4,7 @@ import config from '../config.js';
 
 const { sequelize } = config; 
 
-const QuotationDetails = sequelize.define('quotation-details', {
+const QuotationDetails = sequelize.define('quotationDetails', {
     id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -40,17 +40,20 @@ const QuotationDetails = sequelize.define('quotation-details', {
     depth: {
     type: DataTypes.INTEGER,
     allowNull: false,
+  },    
+  //  isLaminate: {
+  //   type: DataTypes.BOOLEAN,
+  //   defaultValue: true,
+  // },
+  //  isHeavySheet: {
+  //   type: DataTypes.BOOLEAN,
+  //   defaultValue: true,
+  // },
+totalSheet: {
+    type: DataTypes.FLOAT,
+    allowNull: false,
   },
-    
-   isLaminate: {
-    type: DataTypes.BOOLEAN,
-    defaultValue: true,
-  },
-   isHeavySheet: {
-    type: DataTypes.BOOLEAN,
-    defaultValue: true,
-  },
-total: {
+totalLaminate: {
     type: DataTypes.FLOAT,
     allowNull: false,
   },

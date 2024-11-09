@@ -28,7 +28,11 @@ const Quotation = sequelize.define('quotation', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  total: {
+  totalSheet: {
+    type: DataTypes.FLOAT,
+    allowNull: false,
+  },
+  totalLaminate: {
     type: DataTypes.FLOAT,
     allowNull: false,
   },
@@ -43,7 +47,7 @@ const Quotation = sequelize.define('quotation', {
     allowNull: false,
   },
   details:{
-    type: DataTypes.JSON,
+    type: DataTypes.TEXT,
     defaultValue: {},
   },
     status: {
